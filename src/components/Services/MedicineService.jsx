@@ -17,6 +17,24 @@ export const addMedicine=(medicine)=>{
     .then(data=>data)
 }
 
+export const getMedicinesById=(medicine_link)=>{
+    return fetch(medicine_link)
+    .then(data=>data.json())
+    .then(data=>data)
+}
+
+export const updateMedicine=(medicine_id_link,medicine)=>{
+
+    return fetch(medicine_id_link,{
+        method:"PUT",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(medicine)
+    })
+    .then(data=>data.json())
+    .then(data=>data)
+
+}
+
 export const getMedicinesHighToLow=()=>{
 
     return fetch("http://localhost:8081/medicines/search/findByOrderByPriceDesc")

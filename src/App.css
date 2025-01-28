@@ -84,14 +84,16 @@ header nav a:hover {
   width: 100%;
   padding: 20px 30px;
   margin: 35% 35%;
+  
 }
 
 h1 {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #c02491;
+  color: black;
   text-align: center;
   margin-bottom: 20px;
+  background-color: #c02491;
 }
 
 label {
@@ -144,13 +146,57 @@ button:active {
 
 .form-container {
   margin-top: 10px;
+  margin-left: 0%;
+  
+  
 }
 
 .container.border {
-  border-color: #007BFF !important;
+  border-color: #c02491 !important;
+}
+
+.container-login
+{
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  padding: 20px 30px;
+  margin: 35% 35%;
 }
 
 
+.login-text
+{
+  padding: 20px;
+}
+
+.login-btn
+{
+  background-color: #c02491;
+  color: black;
+  
+}
+
+.d-grid
+{
+  background-color: #c02491;
+  color: black;
+
+}
+
+.text
+{
+  background-color: white;
+  color:#c02491;
+  padding: 10px;
+}
+
+.btn
+{
+  margin: 3px;
+}
 
 
 

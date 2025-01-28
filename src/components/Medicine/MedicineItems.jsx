@@ -1,8 +1,14 @@
 import React from "react";
+import { getMedicinesById } from "../Services/MedicineService";
 
 
-function MedicineItems({ medicineName, price, expiryDate, image }) {
+function MedicineItems({ medicineName, price, expiryDate, image, medicine_link, onSelectMedicine }) {
 
+
+    const onSelectUpdate= async (link)=>{
+        let medicine = await getMedicinesById(link);
+        onSelectMedicine(medicine)
+    }
 
     return (
 
@@ -18,8 +24,11 @@ function MedicineItems({ medicineName, price, expiryDate, image }) {
                             <p class="card-text">Price :{price}</p>
                             <p class="card-text">Expiry Date :{expiryDate}</p>
 
-                            {/* Buy Button */}
-                            <button className='btn btn-success'>Buy</button>
+                            {/* Update Button */}
+                            <button className='btn btn-success' onClick={() => { onSelectUpdate(medicine_link) }}>Update</button>
+
+                            {/* Delete Button */}
+                            <button className='btn btn-danger'>Delete</button>
 
 
                         </div>

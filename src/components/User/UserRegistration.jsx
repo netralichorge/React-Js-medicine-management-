@@ -29,7 +29,7 @@ function UserRegistration() {
     return (
         <div className='container border border-primary border-3 p-3 my-3'>
 
-            <h1 className='bg-primary p-3 text-white text-center'>User Registration</h1>
+            <h1 className=' p-3 text-white text-center'>User Registration</h1>
 
             <form onSubmit={submitHandler}>
                 {/* User Id */}
@@ -59,7 +59,7 @@ function UserRegistration() {
 
                 {/* Submit Button  */}
                 <div className="d-grid">
-                    <button type="submit" className="btn btn-primary">Register</button>
+                    <button type="submit" className="btn ">Register</button>
                 </div>
             </form>
         </div>
