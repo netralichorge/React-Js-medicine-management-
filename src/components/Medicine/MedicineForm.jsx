@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { addMedicine, updateMedicine } from "../Services/MedicineService";
 
 
-function MedicineForm({onAddMedicine, selectedMedicine, onUpdateMedicine, setSelectedMedicine}) {
-    let [medicine, setMedicine] = useState({medicineId:'',medicineName:'',price:'',expiryDate:''})
-    const submitHandler = (e) => {
+function MedicineForm({ onAddMedicine, selectedMedicine, setSelectedMedicine }) {
+    let [medicine, setMedicine] = useState({ medicineId: '', medicineName: '', price: '', expiryDate: '' })
+
+    const selectMedicine = (e) => {
         e.preventDefault();
+
         addMedicine({
             medicineId: e.target.medicineId.value,
             medicineName: e.target.medicineName.value,
@@ -18,7 +20,7 @@ function MedicineForm({onAddMedicine, selectedMedicine, onUpdateMedicine, setSel
             })
     }
     //==================================================
-    // useEffect run atleast one time
+
 
     useEffect(() => {
         if (selectedMedicine)
@@ -32,7 +34,7 @@ function MedicineForm({onAddMedicine, selectedMedicine, onUpdateMedicine, setSel
 
     const handleChange = (e) => {
 
-        // console.log(e.target)
+
         let { name, value } = e.target;
         console.log(name + " " + value);
 
@@ -53,15 +55,15 @@ function MedicineForm({onAddMedicine, selectedMedicine, onUpdateMedicine, setSel
 
         console.log("Update Handler called");
         updateMedicine(selectedMedicine._links.self.href, {
-            
+
             medicineName: e.target.medicineName.value,
             price: e.target.price.value,
-            expiryDate:e.target.expiryDate.value
+            expiryDate: e.target.expiryDate.value
 
         })
             .then(data => {
                 onAddMedicine();
-                setMedicine({  medicineName: '',price: '',expiryDate:'' });
+                setMedicine({ medicineName: '', price: '', expiryDate: '' });
                 setSelectedMedicine(null);
             })
 
@@ -71,45 +73,49 @@ function MedicineForm({onAddMedicine, selectedMedicine, onUpdateMedicine, setSel
 
     //=====================================
     return (
-        
-            <div className="form-container">
 
-                <form onSubmit={submitHandler ? updateHandler : submitHandler}>
+        <div className="form-container">
 
-                    <h1>Add Medicine</h1>
+            <form onSubmit={selectMedicine ? updateHandler : selectMedicine}>
+
+                <h1>Add Medicine</h1>
+
+                {selectedMedicine ? <></>:<>
 
                     {/*Medicine Id */}
                     <div className="mb-3">
                         <label for="medicine-id">Medicine Id:</label>
-                        <input type="number" id="medicine-id" name="medicineId" placeholder="Enter medicine Id" 
-                         value={medicine.medicineId} onChange={handleChange} />
-                    </div>
+                        <input type="number" id="medicine-id" name="medicineId" placeholder="Enter medicine Id"
+                            value={medicine.medicineId} onChange={handleChange} />
+                    </div></>}
 
-                    {/*Medicine Name */}
-                    <div className="mb-3">
-                        <label for="medicine-name">Medicine Name:</label>
-                        <input type="text" id="medicine-name" name="medicineName" placeholder="Enter medicine name" required 
-                         value={medicine.medicineName} onChange={handleChange}/>
-                    </div>
 
-                    {/*Medicine Price */}
-                    <div className="mb-3">
-                        <label for="price">Price:</label>
-                        <input type="number" id="price" name="price" placeholder="Enter price" required
+
+                {/*Medicine Name */}
+                <div className="mb-3">
+                    <label for="medicine-name">Medicine Name:</label>
+                    <input type="text" id="medicine-name" name="medicineName" placeholder="Enter medicine name" required
+                        value={medicine.medicineName} onChange={handleChange} />
+                </div>
+
+                {/*Medicine Price */}
+                <div className="mb-3">
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="price" placeholder="Enter price" required
                         value={medicine.price} onChange={handleChange} />
-                    </div>
+                </div>
 
-                    {/*Medicine Expiry Date */}
-                    <div className="mb-3">
-                        <label for="expiry-date">Expiry Date:</label>
-                        <input type="date" id="expiry-date" name="expiryDate" placeholder="Enter expiry date" required
+                {/*Medicine Expiry Date */}
+                <div className="mb-3">
+                    <label for="expiry-date">Expiry Date:</label>
+                    <input type="date" id="expiry-date" name="expiryDate" placeholder="Enter expiry date" required
                         value={medicine.expiryDate} onChange={handleChange} />
-                    </div>
+                </div>
 
-                    <button type="submit">{selectedMedicine ? "Update" : "Submit"}</button>
-                </form>
-            </div>
-        
+                <button type="submit">{selectedMedicine ? "Update" : "Submit"}</button>
+            </form>
+        </div>
+
     )
 }
 

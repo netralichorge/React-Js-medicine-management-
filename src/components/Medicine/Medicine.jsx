@@ -23,6 +23,7 @@ function Medicine() {
             setMedicines(data);
         })
     }
+    
     // to set select medicine
 
     const handleSelectMedicine = (selectedMedicine)=>{
