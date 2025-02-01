@@ -6,6 +6,8 @@ import Medicine from './components/Medicine/Medicine';
 import MedicineForm from './components/Medicine/MedicineForm';
 import UserRegistration from './components/User/UserRegistration';
 import Login from './components/User/Login';
+import Main from './components/Main';
+
 
 
 // Creating routes
@@ -16,8 +18,16 @@ const routes = createBrowserRouter([
   },
   {
     path:"/",
-    element: <Navbar/> 
+    element:<> <Navbar/> <Main/>  </>
   },
+
+  {
+    path:"main",
+    element:<> <Main/>  </>
+  },
+  
+  
+
 
   {
     path:"registration",

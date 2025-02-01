@@ -5,11 +5,11 @@ import { addMedicine, updateMedicine } from "../Services/MedicineService";
 function MedicineForm({ onAddMedicine, selectedMedicine, setSelectedMedicine }) {
     let [medicine, setMedicine] = useState({ medicineId: '', medicineName: '', price: '', expiryDate: '' })
 
-    const selectMedicine = (e) => {
+    const submitHandler = (e) => {
         e.preventDefault();
 
         addMedicine({
-            medicineId: e.target.medicineId.value,
+           
             medicineName: e.target.medicineName.value,
             price: e.target.price.value,
             expiryDate: e.target.expiryDate.value
@@ -47,7 +47,7 @@ function MedicineForm({ onAddMedicine, selectedMedicine, setSelectedMedicine }) 
     }
 
 
-    //==================================================
+    
     // To handle update
 
     const updateHandler = (e) => {
@@ -76,19 +76,9 @@ function MedicineForm({ onAddMedicine, selectedMedicine, setSelectedMedicine }) 
 
         <div className="form-container">
 
-            <form onSubmit={selectMedicine ? updateHandler : selectMedicine}>
+            <form onSubmit={selectedMedicine ? updateHandler : submitHandler}>
 
                 <h1>Add Medicine</h1>
-
-                {selectedMedicine ? <></>:<>
-
-                    {/*Medicine Id */}
-                    <div className="mb-3">
-                        <label for="medicine-id">Medicine Id:</label>
-                        <input type="number" id="medicine-id" name="medicineId" placeholder="Enter medicine Id"
-                            value={medicine.medicineId} onChange={handleChange} />
-                    </div></>}
-
 
 
                 {/*Medicine Name */}

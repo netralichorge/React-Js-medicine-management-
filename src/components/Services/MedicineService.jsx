@@ -7,6 +7,7 @@ export const getMedicines=()=>{
     .then(data=>data["_embedded"]["medicines"])
 }
 
+
 export const addMedicine=(medicine)=>{
 
     return fetch(API_LINK,
@@ -16,6 +17,7 @@ export const addMedicine=(medicine)=>{
     .then(data=>data.json())
     .then(data=>data)
 }
+
 
 export const getMedicinesById=(medicine_link)=>{
     return fetch(medicine_link)
@@ -33,6 +35,13 @@ export const updateMedicine=(medicine_id_link,medicine)=>{
     .then(data=>data.json())
     .then(data=>data)
 
+}
+
+export const deleteMedicine = (medicine_id_link) => {
+    return fetch(medicine_id_link,{
+        method:"DELETE"
+    }).then(data=>data.json())
+    .then(data=>data)
 }
 
 export const getMedicinesHighToLow=()=>{

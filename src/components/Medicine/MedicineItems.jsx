@@ -1,14 +1,25 @@
 import React from "react";
-import { getMedicinesById } from "../Services/MedicineService";
+import { deleteMedicine, getMedicinesById } from "../Services/MedicineService";
 
 
-function MedicineItems({ medicineName, price, expiryDate, image, medicine_link, onSelectMedicine }) {
+function MedicineItems({ medicineName, price, expiryDate, image, medicine_link, onSelectMedicine,onDeleteMedicine }) {
 
 
     const onSelectUpdate= async (link)=>{
         let medicine = await getMedicinesById(link);
         onSelectMedicine(medicine)
     }
+
+    // Function to delete medicine
+
+    const onSelectDelete=async(medicine_id_link)=>{
+        const deletedMedicine = await deleteMedicine(medicine_id_link)
+        onDeleteMedicine();
+        
+    }
+
+
+    // =============================================
 
     return (
 
@@ -28,7 +39,8 @@ function MedicineItems({ medicineName, price, expiryDate, image, medicine_link, 
                             <button className='btn btn-success' onClick={() => { onSelectUpdate(medicine_link) }}>Update</button>
 
                             {/* Delete Button */}
-                            <button className='btn btn-danger'>Delete</button>
+                            <button className='btn btn-danger' onClick={()=>
+                            {onSelectDelete(medicine_link)}}>Delete</button>
 
 
                         </div>

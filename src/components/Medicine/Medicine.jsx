@@ -3,17 +3,20 @@ import React, { useEffect, useState } from 'react'
 import MedicineItems from './MedicineItems'
 import { getMedicines, getMedicinesLowToHigh, getMedicinesHighToLow, getMedicinesOrderByMedicineNameAsc, getMedicinesOrderByMedicineNameDesc } from '../Services/MedicineService'
 import MedicineForm from './MedicineForm';
+import { getCategory, getMedicinesByCategory } from '../Services/CategoryService';
 
 function Medicine() {
     let [medicines, setMedicines] = useState([])
     let [selectedMedicine, setSelectedMedicine] = useState(null);
     let [searchQuery, setSearchQuery] = useState('');
+    let [categories, setCategories] = useState([])
 
     useEffect(() => {
         getMedicines()
             .then(data => {
                 setMedicines(data);
             })
+            fetchCatgories();
     }, [])
 
     //to refresh all
@@ -23,10 +26,10 @@ function Medicine() {
             setMedicines(data);
         })
     }
-    
+
     // to set select medicine
 
-    const handleSelectMedicine = (selectedMedicine)=>{
+    const handleSelectMedicine = (selectedMedicine) => {
         setSelectedMedicine(selectedMedicine);
         console.log(selectedMedicine)
     }
@@ -49,6 +52,24 @@ function Medicine() {
 
         }
     }
+
+    // to fetch category
+
+    const fetchCatgories = async () => {
+        console.log("Hello")
+        setCategories(await getCategory())
+      }
+
+      // handle category
+
+      const handleCategory = async(category_link) => {
+
+        let data=await getMedicinesByCategory(category_link)
+        setMedicines(data)
+    
+      }
+
+
     // ========================================================
 
 
@@ -64,59 +85,86 @@ function Medicine() {
 
                         <MedicineForm onAddMedicine={refreshMedicines} selectedMedicine={selectedMedicine} onUpdateMedicine={refreshMedicines} setSelectedMedicine={setSelectedMedicine} />
                         {/* Medicine Form End */}
-                    </div>
 
 
-                    <div className='col-md-8 ms-auto'>
-                        {/* Sort :Start */}
-                        <ul className="list-group mb-3">
-                            <li className="list-group-item" onClick={() => { sort(1) }}>High to Low</li>
-                            <li className="list-group-item" onClick={() => { sort(2) }}>Low to High</li>
-                            <li className="list-group-item" onClick={() => { sort(3) }}>A-Z</li>
-                            <li className="list-group-item" onClick={() => { sort(4) }}>Z-A</li>
-                        </ul>
-                        {/* Sort :End */}
+                        <div className='col-md-8  '>
+                            {/* Sort :Start */}
+                            <ul className="list-group mb-3 ">
+                                <li className="list-group-item" onClick={() => { sort(1) }}>High to Low</li>
+                                <li className="list-group-item" onClick={() => { sort(2) }}>Low to High</li>
+                                <li className="list-group-item" onClick={() => { sort(3) }}>A-Z</li>
+                                <li className="list-group-item" onClick={() => { sort(4) }}>Z-A</li>
+                            </ul>
+                            {/* Sort :End */}
 
-                        {/* Search Start */}
-                        <div className="mb-3">
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                onChange={(e) => { setSearchQuery(e.target.value) }} />
-                            <div id="emailHelp" className="form-text">Search here.</div>
-                        </div>
-
-                        {/* Search end */}
-                        <div>
-
-                            {/* Displaying Medicines : Start */}
-
-                            <div className="row row-cols-1 row-cols-md-2 g-4">
-                                {medicines.filter(m => {
-
-                                    return m.medicineName.toLowerCase()
-                                        .includes(searchQuery.toLowerCase())
-                                }).map((m) => {
-                                    return (
-                                        <MedicineItems
-                                            medicineName={m.medicineName}
-                                            price={m.price}
-                                            expiryDate={m.expiryDate}
-                                            image={m._links.self.href}
-                                            medicine_link={m._links.self.href}
-                                            onSelectMedicine={handleSelectMedicine}
-                                            
-                                        />
-                                    )
-                                })}
+                            {/* Search Start */}
+                            <div className="mb-3">
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    onChange={(e) => { setSearchQuery(e.target.value) }} />
+                                <div id="emailHelp" className="form-text">Search here.</div>
                             </div>
-                            {/* Displaying Medicines : End */}
 
+                            {/* Search end */}
+
+
+
+
+                            {/* Category start */}
+                            <div className='category-list'>
+                            <ul class="list-group list-group-horizontal ">
+  
+                                    {
+                                        categories.map((c) => {
+                                            return (
+                                                <li className="list-group-item"
+                                                onClick={()=>{handleCategory(c._links.self.href)}}>
+                                                    {c.type}</li>
+                                            )
+                                        })
+
+                                    }
+
+                                </ul>
+
+                                </div>
+
+
+                            {/* display category end */}
+                            <div>
+
+                                {/* Displaying Medicines : Start */}
+
+                                <div className='card-container'>
+                                    <div className="row row-cols-1 row-cols-md-2 g-4">
+                                        {medicines.filter(m => {
+
+                                            return m.medicineName.toLowerCase()
+                                                .includes(searchQuery.toLowerCase())
+                                        }).map((m) => {
+                                            return (
+                                                <MedicineItems
+                                                    medicineName={m.medicineName}
+                                                    price={m.price}
+                                                    expiryDate={m.expiryDate}
+                                                    image={m._links.self.href}
+                                                    medicine_link={m._links.self.href}
+                                                    onSelectMedicine={handleSelectMedicine}
+                                                    onDeleteMedicine={refreshMedicines}
+
+                                                />
+                                            )
+                                        })}
+                                    </div>
+                                    {/* Displaying Medicines : End */}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-
-
+        
 
     )
 

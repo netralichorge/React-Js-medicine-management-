@@ -1,9 +1,10 @@
 import React from "react";
 
+
 function Navbar() {
     return (
 
-        <div>
+        <div >
 
             <header>
                 <div class="logo">Medicine Management</div>
@@ -18,7 +19,12 @@ function Navbar() {
 
             </header>
 
+    
+
         </div>
+
+        
+        
 
        
 
