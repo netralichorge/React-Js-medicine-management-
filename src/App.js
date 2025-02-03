@@ -7,6 +7,11 @@ import MedicineForm from './components/Medicine/MedicineForm';
 import UserRegistration from './components/User/UserRegistration';
 import Login from './components/User/Login';
 import Main from './components/Main';
+import MedicineItemDetails from './components/Medicine/MedicineItemDetails';
+import About from './components/About';
+import Contact from './components/Contact';
+import Inventory from './components/Inventory/Inventory';
+
 
 
 
@@ -25,13 +30,15 @@ const routes = createBrowserRouter([
     path:"main",
     element:<> <Main/>  </>
   },
-  
-  
-
 
   {
+    path:"medicine/:medicineId",
+    element:<> <Navbar/> <MedicineItemDetails/>  </>
+  },
+  
+  {
     path:"registration",
-    element:<> <UserRegistration/> </>
+    element:<>  <Navbar/> <UserRegistration/> </>
   },
 
   {
@@ -42,7 +49,26 @@ const routes = createBrowserRouter([
   {
     path:"medicineform",
     element: <> <Navbar/> <MedicineForm/> </>
+  },
+
+  {
+    path:"about",
+    element: <> <Navbar/> <About/> </>
+  },
+
+  {
+    path:"contact",
+    element: <> <Navbar/> <Contact/> </>
+  },
+
+  {
+    path:"inventory",
+    element: <> <Navbar/> <Inventory/> </>
   }
+
+
+
+
 
   
 ])

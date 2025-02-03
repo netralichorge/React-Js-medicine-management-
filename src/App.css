@@ -38,7 +38,7 @@
 }
 
 
-
+/*
 header {
   
   background-color:black; 
@@ -66,24 +66,9 @@ header nav a {
 header nav a:hover {
   text-decoration: underline;
 }
+*/
 
-
-
-
-
-.card
-{
-  width: 250px;
-  
-
-}
-.card-container
-{
- /* row-gap: 15%;*/
-  margin-right: 10px;
- /* padding-left: 0%; */
-}
-
+/* Add form Css*/
 
 .form-container {
   background-color: #ffffff;
@@ -156,7 +141,6 @@ button:active {
 }
 
 
-
 .container.border {
   border-color: #c02491 !important;
 }
@@ -171,7 +155,6 @@ button:active {
   padding: 20px 30px;
   margin: 35% 35%;
 }
-
 
 .login-text
 {
@@ -205,14 +188,423 @@ button:active {
 }
 
 
-.list-group
-{
-  margin-top: 10%;
-}
 
 .category-list
 {
   padding-bottom: 8%;
 }
 
+
+
+
+
+.col-md-8 {
+  margin-left: 400px; /* Add space between right column and left column */
+  
+}
+
+
+/* Style the cards */
+.card-container  {
+  width: 270%; /* Make the card take full width of the column */
+ /* max-width: 300px;  Max width to limit the size */
+  height: 530px; /* Set a fixed height for each card */
+  margin: 0 auto; /* Center the card in the column */
+  border-radius: 8px; /* Optional: rounded corners for the card */
+  transition: transform 0.3s ease; /* Optional: smooth transition on hover */
+}
+
+
+
+
+
+.category-list
+{
+  padding-bottom: 8%;
+}
+
+
+
+/*============================= */
+
+/* Main container for the page */
+.container {
+  padding-top: 30px;
+}
+
+/* Row should be in a flex layout */
+.container .row {
+  display: flex;
+  justify-content: space-between; /* Align the columns to the left and right */
+}
+
+/* Medicine Form Section */
+.col-md-4 {
+  padding-right: 20px; /* Optional, space between form and right side */
+}
+
+/* Right Side Section */
+.col-md-8 {
+  padding-left: 20px;
+}
+
+/* Right side top layout (sorting, search, categories) */
+.right-side-top {
+  margin-top: -220%;
+  margin-bottom: 30px; /* Space between top section and medicine cards */
+}
+
+/* Styling for Sort List */
+.list-group-item {
+  cursor: pointer;
+}
+
+/* Category List Styling */
+.category-list {
+  margin-top: 20px;
+}
+
+/* Medicine Cards Container */
+.card-container {
+  margin-top: 30px;
+}
+
+/* Row layout for medicine cards */
+.card-container .row {
+  margin-top: 20px;
+}
+
+/* Optional: Styling for cards (medicine display) */
+.card-container .card {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: add a little shadow for the cards */
+}
+
+/* Optional: Add spacing between the input field and its label */
+.mb-3 {
+  margin-bottom: 20px;
+}
+
+/* Adjustments for responsive design if needed */
+@media (max-width: 768px) {
+  .col-md-8 {
+      padding-left: 0;
+  }
+
+  .col-md-4 {
+      padding-right: 0;
+  }
+}
+
+
+
+
+
+/* background image*/
+
+/* Background Image for the Page */
+.background-image {
+  background-image: url('./images/medicine_background.jpg'); /* Replace with your background image URL */
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Full viewport height */
+  position: relative;
+  
+}
+
+.content
+{
+  text-align: center;
+ 
+}
+
+.custom-image {
+  width: 50%; /* You can specify fixed values like '200px' */
+  height: 50%; /* Maintains aspect ratio */
+}
+
+
+
+
+.card-body-items
+{
+  margin-left: 60%;
+  margin-top: -35%;
+  border-radius: 20px;
+  margin-bottom: 20px; 
+  
+}
+
+.card-body-items .card-title {
+  font-size: 28px; /* Set font size for the title */
+}
+
+.card-body-items .card-text {
+  font-size: 20px; /* Set font size for the text */
+}
+
+.btn-4
+{
+  width: 40%;
+  cursor: pointer;
+  background-color: #8f3dc5;
+ 
+}
+.btn-4:hover {
+  background-color: none;
+}
+
+
+
+
+/* About Us Section */
+.about-us {
+  background-image: url('./images/about_bg.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  padding: 60px 0;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.text-content h2 {
+  font-size: 30px;
+  /*font-weight: bold;*/
+  margin-bottom: 20px;
+  color: black;
+}
+
+.text-content p {
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 20px auto;
+  color: black;
+}
+
+.mission, .vision {
+  margin-top: 40px;
+  text-align: center;
+  
+}
+
+.mission h2, .vision h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+  color: black;
+}
+
+.mission p, .vision p {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto 30px;
+
+  
+}
+
+
+
+/*Navbar CSS*/
+
+
+.navbar {
+    background-color:#333;
+  }
+  
+  /* !important :Appear white by default.  */
+  .navbar a {
+    margin-left: 3px;
+    color: white !important;
+  }
+  
+  .navbar a:hover {
+    color: #f8a488 !important;
+  }
+  
+  
+  
+  .navbar .btn {
+    border-radius: 20px; 
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .navbar .btn-outline-success {
+    background-color: #28a745; /* Green background */
+    color: rgb(22, 18, 18);
+    border: 1px solid #28a745;
+  }
+  
+  .navbar .btn-outline-success:hover {
+    background-color: #218838; /* Darker green on hover */
+    color: #0a0909;
+    border-color: #1e7e34;
+  }
+  
+  /* Navbar End */
+
+
+
+/* Contact Section */
+.contact-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(55, 16, 224, 0.1);
+  background: linear-gradient(135deg, #11ce40 0%, #4dc416 100%);
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.contact-section:hover {
+  transform: scale(1.02);
+}
+
+.contact-section h2 {
+  font-size: 2.5em;
+  color: #1037e6;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.contact-section p {
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #444;
+}
+
+/* Contact Information */
+.contact-info {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h3 {
+  font-size: 1.8em;
+  color: #db1360;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.contact-info p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Hover effect for each paragraph */
+.contact-info p:hover {
+  color: #2d87f0;
+  transition: color 0.3s ease;
+}
+
+/* Adding an Icon before text */
+.contact-info p::before {
+  content: "\2022"; /* Unicode bullet point */
+  color: #db1360;
+  font-size: 1.5em;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Hover Effect for Contact Info Section */
+.contact-info:hover {
+  background-color: #f0fff0;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Responsive Media Query */
+@media (max-width: 768px) {
+  .contact-section {
+      padding: 20px;
+  }
+
+  .contact-section h2 {
+      font-size: 2em;
+  }
+
+  .contact-info h3 {
+      font-size: 1.5em;
+  }
+
+  .contact-info p {
+      font-size: 1em;
+  }
+}
+
+/*Inventory Page*/
+
+.inventory-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 40%;
+  margin-top: 10%;
+  margin-left: 30%;
+  border: 2px solid black;
+}
+
+.inventory-form h4 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.form-group button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+.form-group button:hover {
+  background-color: #45a049;
+}
 

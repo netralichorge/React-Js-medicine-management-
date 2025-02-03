@@ -80,7 +80,7 @@ function Medicine() {
 
             <div class="container mt-6">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 ">
                         {/* Medicine Form Start */}
 
                         <MedicineForm onAddMedicine={refreshMedicines} selectedMedicine={selectedMedicine} onUpdateMedicine={refreshMedicines} setSelectedMedicine={setSelectedMedicine} />
@@ -88,6 +88,7 @@ function Medicine() {
 
 
                         <div className='col-md-8  '>
+                        <div class="right-side-top">
                             {/* Sort :Start */}
                             <ul className="list-group mb-3 ">
                                 <li className="list-group-item" onClick={() => { sort(1) }}>High to Low</li>
@@ -135,7 +136,7 @@ function Medicine() {
                                 {/* Displaying Medicines : Start */}
 
                                 <div className='card-container'>
-                                    <div className="row row-cols-1 row-cols-md-2 g-4">
+                                    <div className="row row-cols-1 row-cols-md-2 g-4 ">
                                         {medicines.filter(m => {
 
                                             return m.medicineName.toLowerCase()
@@ -143,6 +144,7 @@ function Medicine() {
                                         }).map((m) => {
                                             return (
                                                 <MedicineItems
+                                                medicineId={m.medicineId}
                                                     medicineName={m.medicineName}
                                                     price={m.price}
                                                     expiryDate={m.expiryDate}
@@ -162,7 +164,7 @@ function Medicine() {
                     </div>
                 </div>
             </div>
-
+</div>
         </div>
         
 

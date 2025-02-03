@@ -1,28 +1,49 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 function Navbar() {
     return (
 
-        <div >
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    
+                    <a class="navbar-brand" href="#">Medicine Management</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <Link class="nav-link active" to={"/"}>Home</Link>
+                            </li>
 
-            <header>
-                <div class="logo">Medicine Management</div>
-                <nav>
-                    <a href="">Home</a>
-                    <a href="">User</a>
-                    <a href="">Medicine</a>
-                    <a href="">Category</a>
-                    <a href="">Order</a>
-                    <a href="">Inventory</a>
-                </nav>
+                            <li class="nav-item">
+                                <Link class="nav-link active" to={"/Medicine"} >Medicine</Link>
+                            </li>
 
-            </header>
+                            <li class="nav-item">
+                                <Link class="nav-link active" to={"/Registration"} >User</Link>
+                            </li>
 
-    
+                            <li class="nav-item">
+                                <Link class="nav-link active" to={"/About"}>About Us</Link>
+                            </li>
 
+                            <li class="nav-item">
+                                <Link class="nav-link active" to={"/Contact"}>Contact</Link>
+                            </li>
+
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
         </div>
-
         
         
 
@@ -30,6 +51,6 @@ function Navbar() {
 
 
     );
-}
 
+}
 export default Navbar;

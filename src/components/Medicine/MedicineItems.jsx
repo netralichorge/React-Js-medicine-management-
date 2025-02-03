@@ -1,9 +1,11 @@
 import React from "react";
 import { deleteMedicine, getMedicinesById } from "../Services/MedicineService";
+import { useNavigate } from "react-router-dom";
 
 
-function MedicineItems({ medicineName, price, expiryDate, image, medicine_link, onSelectMedicine,onDeleteMedicine }) {
+function MedicineItems({medicineId, medicineName, price, expiryDate, image, medicine_link, onSelectMedicine,onDeleteMedicine }) {
 
+    const navigate = useNavigate();
 
     const onSelectUpdate= async (link)=>{
         let medicine = await getMedicinesById(link);
@@ -41,6 +43,10 @@ function MedicineItems({ medicineName, price, expiryDate, image, medicine_link, 
                             {/* Delete Button */}
                             <button className='btn btn-danger' onClick={()=>
                             {onSelectDelete(medicine_link)}}>Delete</button>
+
+                            <button onClick={()=>{
+                              navigate(`/medicine/${medicineId}`)
+                            }}>View Details</button>
 
 
                         </div>

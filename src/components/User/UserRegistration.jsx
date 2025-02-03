@@ -32,11 +32,7 @@ function UserRegistration() {
             <h1 className=' p-3 text-white text-center'>User Registration</h1>
 
             <form onSubmit={submitHandler}>
-                {/* User Id */}
-                <div className="mb-3">
-                    <label for="userId" className="form-label">User Id</label>
-                    <input type="text" className="form-control" id="userId" name="userId" placeholder="Enter user id" />
-                </div>
+                
 
                 {/* User Name */}
                 <div className="mb-3">
