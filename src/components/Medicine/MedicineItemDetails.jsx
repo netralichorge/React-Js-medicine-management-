@@ -3,6 +3,7 @@ import { getMedicinesById } from '../Services/MedicineService';
 import { useParams } from 'react-router-dom';
 import Inventory from '../Inventory/Inventory';
 
+
 function MedicineItemDetails() {
   const [medicine, setMedicine] = useState(null); // Set initial state to null, not undefined
   const [showInventoryForm, setShowInventoryForm] = useState(false); // State to control form visibility
@@ -57,7 +58,7 @@ function MedicineItemDetails() {
               <p>Medicines are powerful—handle with care.</p>
 
               {/* Conditionally render the InventoryComponent if showInventoryForm is true */}
-              {showInventoryForm && <Inventory />}
+              {showInventoryForm && <Inventory medicineId={medicineId} />}
             </div>
           </div>
         </div>
